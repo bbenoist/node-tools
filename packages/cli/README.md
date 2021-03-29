@@ -37,7 +37,7 @@ _Add `typescript` at the end of the line if it's not already installed globally.
 ### NPM (project)
 
 ```text
-npm install --dev @lint-ts-index/cli
+npm install --save-dev @lint-ts-index/cli
 ```
 
 ### Yarn (project)

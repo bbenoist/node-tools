@@ -13,16 +13,8 @@ Have you ever forget to export the content of a new source file into the `index.
 
 ## Installation
 
-### npm
-
 ```text
 npm install @lint-ts-index/core
-```
-
-### yarn
-
-```text
-yarn add @lint-ts-index/core
 ```
 
 ## Usage
