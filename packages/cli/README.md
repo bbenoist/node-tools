@@ -48,6 +48,17 @@ yarn add -D @lint-ts-index/cli
 
 ## Usage
 
+<!-- AUTO-GENERATED-CONTENT:START (CLI_USAGE) -->
+```txt
+Usage: lint-ts-index [options]
+
+Options:
+  --fix       Add the missing sources in their index.ts
+  -h, --help  display help for command
+
+```
+<!-- AUTO-GENERATED-CONTENT:END -->
+
 ### Lint
 
 ```text
