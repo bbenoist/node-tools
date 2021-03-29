@@ -1,0 +1,30 @@
+{
+  "editor.rulers": [80],
+  "editor.tabSize": 2,
+  "editor.trimAutoWhitespace": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "files.exclude": {
+    "**/.DS_Store": true,
+    "**/.git": true,
+    "**/.hg": true,
+    "**/.svn": true,
+    "**/CVS": true,
+  },
+  "typescript.tsdk": "./common/temp/node_modules/typescript/lib",
+  "typescript.preferences.quoteStyle": "single",
+  "eslint.run": "onSave",
+  "eslint.nodePath": "./common/temp/node_modules",
+  "eslint.validate": [
+    "javascript",
+    "typescript"
+  ],
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false
+  },
+  "files.associations": { "*.json": "jsonc" }
+}

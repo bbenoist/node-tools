@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+
+// https://github.com/npm/npm/issues/6674#issuecomment-108132800
+require('../dist/index');

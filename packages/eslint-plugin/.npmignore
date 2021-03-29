@@ -1,0 +1,10 @@
+*.log
+.eslintignore
+.eslintrc.js
+.gitignore
+.rush
+.npmignore
+api-extractor.json
+node_modules
+src
+tsconfig.json

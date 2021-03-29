@@ -1,0 +1,8 @@
+*.log
+.eslintrc.js
+.gitignore
+.rush
+.npmignore
+node_modules
+src
+tsconfig.json
