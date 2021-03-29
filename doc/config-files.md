@@ -1,5 +1,15 @@
 # Configuration File Formats
 
+## .indexignore files
+
+lint-ts-index packages supports `.indexignore` files which you can place anywhere in the repository (they will be recursively searched at the start of the linter).
+
+Each line of a `.indexignore` file will exclude matching files and directories from the verification.
+Rules of a `.indexignore` file applies only to the parent directory and its children.
+
+It can be the path to both `index.ts` and source files.
+This way you can either exclude a full `index.ts` file to be verified or just a single file which you'd like to keep private.
+
 ## RC file
 
 Thanks to [cosmiconfig](https://www.npmjs.com/package/cosmiconfig), the following configuration files formats are supported by lint-ts-index:
@@ -41,10 +51,3 @@ Defaults to the root directory.
 A list of files to exclude from the verification.
 It can be the path to both `index.ts` and source files.
 This way you can either exclude a full `index.ts` file to be verified or just a single file which you'd like to keep private.
-
-## .indexignore files
-
-As an alternative to the exclude property, lint-ts-index also supports `.indexignore` files which you can place anywhere int the repository.
-They will be recursively searched at the start of the linter.
-
-Each line works exactly the same way than the `exclude` property but they will be applied only to the `.indexignore` parent directory and its children.

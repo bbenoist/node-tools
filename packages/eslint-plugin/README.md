@@ -29,6 +29,8 @@ yarn add -D @lint-ts-index/eslint-plugin
 
 ## Configure eslint
 
+The most minimal ESLint configuration to enable lint-ts-index should look like this:
+
 ```js
 module.exports = {
   plugins: ['@lint-ts-index'],
@@ -37,6 +39,8 @@ module.exports = {
   }
 };
 ```
+
+Valid values for the `@lint-ts-index/exports` rule are `error`, `warning` and `off`.
 
 See also [Configuration File Formats](https://github.com/bbenoist/lint-ts-index/tree/master/doc/config-files.md) to include/exclude files and directories.
 
