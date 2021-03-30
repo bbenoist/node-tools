@@ -13,9 +13,9 @@ This is the monorepo for the lint-ts-index project. A set of tools to make sure 
 
 It contains the source code for the following NPM packages:
 
-- [`@lint-ts-index/cli`](packages/cli/README.md) - A command-line interface.
-- [`@lint-ts-index/eslint-plugin`](packages/eslint-plugin/README.md) - An eslint plugin.
-- [`@lint-ts-index/core`](packages/core/README.md) - The core library where all the magic happens.
+- [`@lint-ts-index/cli`](projects/cli/README.md) - A command-line interface.
+- [`@lint-ts-index/eslint-plugin`](projects/eslint-plugin/README.md) - An eslint plugin.
+- [`@lint-ts-index/core`](projects/core/README.md) - The core library where all the magic happens.
 
 > :warning: **This project is still experimental and subject to important changes.
 > Use it at your own risk**

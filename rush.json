@@ -381,18 +381,28 @@
   "projects": [
     {
       "packageName": "@lint-ts-index/core",
-      "projectFolder": "packages/core",
+      "projectFolder": "projects/core",
       "shouldPublish": true
     },
     {
       "packageName": "@lint-ts-index/cli",
-      "projectFolder": "packages/cli",
+      "projectFolder": "projects/cli",
       "shouldPublish": true
     },
     {
       "packageName": "@lint-ts-index/eslint-plugin",
-      "projectFolder": "packages/eslint-plugin",
+      "projectFolder": "projects/eslint-plugin",
       "shouldPublish": true
+    },
+    {
+      "packageName": "@lint-ts-index/examples",
+      "projectFolder": "examples",
+      "shouldPublish": false
+    },
+    {
+      "packageName": "@lint-ts-index/markdown-magic-utils",
+      "projectFolder": "projects/markdown-magic-utils",
+      "shouldPublish": false
     }
     // {
     //   /**

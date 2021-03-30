@@ -2,7 +2,7 @@
 
 ## .indexignore files
 
-lint-ts-index packages supports `.indexignore` files which you can place anywhere in the repository (they will be recursively searched at the start of the linter).
+lint-ts-index supports `.indexignore` files which you can place anywhere in the repository (they will be recursively searched at the start of the linter).
 
 Each line of a `.indexignore` file will exclude matching files and directories from the verification.
 Rules of a `.indexignore` file applies only to the parent directory and its children.

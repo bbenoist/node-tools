@@ -1,7 +1,20 @@
 importers:
   .:
     specifiers: {}
-  ../../packages/cli:
+  ../../examples:
+    devDependencies:
+      '@lint-ts-index/eslint-plugin': link:../projects/eslint-plugin
+      '@rushstack/eslint-config': 2.3.2_eslint@7.23.0+typescript@4.2.3
+      eslint: 7.23.0
+      prettier: 2.2.1
+      typescript: 4.2.3
+    specifiers:
+      '@lint-ts-index/eslint-plugin': workspace:*
+      '@rushstack/eslint-config': ~2.3.2
+      eslint: ~7.23.0
+      prettier: ~2.2.1
+      typescript: ~4.2.3
+  ../../projects/cli:
     dependencies:
       '@lint-ts-index/core': link:../core
       commander: 7.2.0
@@ -11,6 +24,7 @@ importers:
       '@types/node': 14.14.37
       eslint: 7.23.0
       markdown-magic: 2.0.0
+      markdown-magic-utils: link:../markdown-magic-utils
       prettier: 2.2.1
       typescript: 4.2.3
     specifiers:
@@ -21,9 +35,10 @@ importers:
       commander: ~7.2.0
       eslint: ~7.23.0
       markdown-magic: ~2.0.0
+      markdown-magic-utils: workspace:*
       prettier: ~2.2.1
       typescript: ~4.2.3
-  ../../packages/core:
+  ../../projects/core:
     dependencies:
       class-validator: 0.13.1
       cosmiconfig: 7.0.0
@@ -49,7 +64,7 @@ importers:
       multimatch: ~5.0.0
       prettier: ~2.2.1
       typescript: ~4.2.3
-  ../../packages/eslint-plugin:
+  ../../projects/eslint-plugin:
     dependencies:
       '@lint-ts-index/core': link:../core
       '@typescript-eslint/experimental-utils': 4.19.0_eslint@7.23.0+typescript@4.2.3
@@ -68,6 +83,28 @@ importers:
       eslint: ~7.23.0
       multimatch: ~5.0.0
       prettier: ~2.2.1
+      typescript: ~4.2.3
+  ../../projects/markdown-magic-utils:
+    dependencies:
+      shell-escape: 0.2.0
+    devDependencies:
+      '@microsoft/api-documenter': 7.12.14
+      '@microsoft/api-extractor': 7.13.2
+      '@rushstack/eslint-config': 2.3.2_eslint@7.23.0+typescript@4.2.3
+      '@types/node': 14.14.37
+      '@types/shell-escape': 0.2.0
+      eslint: 7.23.0
+      prettier: 2.2.1
+      typescript: 4.2.3
+    specifiers:
+      '@microsoft/api-documenter': ~7.12.14
+      '@microsoft/api-extractor': ~7.13.2
+      '@rushstack/eslint-config': ~2.3.2
+      '@types/node': ~14.14.37
+      '@types/shell-escape': ~0.2.0
+      eslint: ~7.23.0
+      prettier: ~2.2.1
+      shell-escape: ~0.2.0
       typescript: ~4.2.3
 lockfileVersion: 5.2
 packages:
@@ -300,6 +337,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==
+  /@types/shell-escape/0.2.0:
+    dev: true
+    resolution:
+      integrity: sha512-7kUdtJtUylvyISJbe9FMcvMTjRdP0EvNDO1WbT0lT22k/IPBiPRTpmWaKu5HTWLCGLQRWVHrzVHZktTDvvR23g==
   /@types/validator/13.1.3:
     dev: false
     resolution:
@@ -2126,6 +2167,10 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==
+  /shell-escape/0.2.0:
+    dev: false
+    resolution:
+      integrity: sha1-aP0CXrBJC09WegJ/C/IkgLX4QTM=
   /side-channel/1.0.4:
     dependencies:
       call-bind: 1.0.2

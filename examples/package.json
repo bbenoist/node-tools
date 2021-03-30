@@ -1,0 +1,31 @@
+{
+  "name": "@lint-ts-index/examples",
+  "version": "0.1.0",
+  "description": "Example project to demonstrate the use of the linter",
+  "author": "Baptist BENOIST",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/bbenoist/lint-ts-index",
+    "type": "git"
+  },
+  "scripts": {
+    "build": "",
+    "clean": "",
+    "lint": "rushx lint:eslint && rushx lint:prettier",
+    "lint:eslint": "eslint .",
+    "lint:prettier": "rushx prettier -l",
+    "fix": "rushx fix:eslint && rushx fix:prettier",
+    "fix:eslint": "rushx lint:eslint --fix",
+    "fix:prettier": "rushx prettier --write",
+    "prettier": "prettier \"**/*.ts\" \"**/*.js\" --ignore-path ../.prettierignore -l",
+    "rebuild": "",
+    "test": ""
+  },
+  "devDependencies": {
+    "@lint-ts-index/eslint-plugin": "workspace:*",
+    "@rushstack/eslint-config": "~2.3.2",
+    "eslint": "~7.23.0",
+    "prettier": "~2.2.1",
+    "typescript": "~4.2.3"
+  }
+}

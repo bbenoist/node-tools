@@ -25,7 +25,7 @@
       "enableParallelism": true,
       "safeForSimultaneousRushProcesses": false,
       "ignoreDependencyOrder": false,
-      "summary": "Rebuild packages"
+      "summary": "Rebuild projects"
     },
     {
       "commandKind": "bulk",
