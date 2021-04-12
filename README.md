@@ -1,9 +1,9 @@
-# lint-ts-index
+# bbenoist Node.JS tools
 
-[![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/bbenoist/lint-ts-index?label=Version&logo=git&sort=semver)](https://github.com/bbenoist/lint-ts-index/releases)
-[![License](https://img.shields.io/github/license/bbenoist/lint-ts-index?label=License&logo=github)](https://raw.githubusercontent.com/bbenoist/lint-ts-index/master/LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/bbenoist/lint-ts-index?label=Issues&logo=github)](https://github.com/bbenoist/lint-ts-index/issues)
-[![CI / CD](https://github.com/bbenoist/lint-ts-index/actions/workflows/ci-cd.yml/badge.svg?branch=master)](https://github.com/bbenoist/lint-ts-index/actions/workflows/ci-cd.yml)
+[![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/bbenoist/node-tools?label=Version&logo=git&sort=semver)](https://github.com/bbenoist/node-tools/releases)
+[![License](https://img.shields.io/github/license/bbenoist/node-tools?label=License&logo=github)](https://raw.githubusercontent.com/bbenoist/node-tools/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/bbenoist/node-tools?label=Issues&logo=github)](https://github.com/bbenoist/node-tools/issues)
+[![CI / CD](https://github.com/bbenoist/node-tools/actions/workflows/ci-cd.yml/badge.svg?branch=master)](https://github.com/bbenoist/node-tools/actions/workflows/ci-cd.yml)
 
 [![npm](https://img.shields.io/npm/dt/@lint-ts-index/core?label=core&logo=npm)](https://npmjs.com/package/core)
 [![npm](https://img.shields.io/npm/dt/@lint-ts-index/cli?label=cli&logo=npm)](https://npmjs.com/package/cli)
@@ -13,12 +13,10 @@ This is the monorepo for the lint-ts-index project. A set of tools to make sure 
 
 It contains the source code for the following NPM packages:
 
-- [`@lint-ts-index/cli`](projects/cli/README.md) - A command-line interface.
-- [`@lint-ts-index/eslint-plugin`](projects/eslint-plugin/README.md) - An eslint plugin.
-- [`@lint-ts-index/core`](projects/core/README.md) - The core library where all the magic happens.
-
-> :warning: **This project is still experimental and subject to important changes.
-> Use it at your own risk**
+- [`@lint-ts-index/cli`](projects/lint-ts-index/cli/README.md) - A command-line interface.
+- [`@lint-ts-index/eslint-plugin`](projects/lint-ts-index/eslint-plugin/README.md) - An eslint plugin.
+- [`@lint-ts-index/core`](projects/lint-ts-index/core/README.md) - The core library where all the magic happens.
+- [`@bb-tools/markdown-magic-utils`](projects/tools/markdown-magic-utils/README.md) - A set of helpers for working with [markdown-magic](https://www.npmjs.com/package/markdown-magic).
 
 ## Contributing
 

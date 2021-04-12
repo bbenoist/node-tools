@@ -6,7 +6,7 @@ var {
   cmdOutput
 } = require('markdown-magic-utils');
 
-var examples = path.join(__dirname, '..', '..', 'examples');
+var examples = path.join(__dirname, '..', '..', '..', 'examples');
 var simpleExample = path.join(examples, 'simple', 'fail');
 var advancedExample = path.join(examples, 'advanced', 'fail');
 

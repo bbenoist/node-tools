@@ -1,5 +1,5 @@
 {
-  "name": "@lint-ts-index/core",
+  "name": "@lint-ts-index/eslint-plugin",
   "version": "0.1.1",
   "description": "Check whether TS files are exported in index.ts",
   "main": "lib/index.js",
@@ -8,15 +8,13 @@
   "author": "Baptist BENOIST",
   "license": "MIT",
   "repository": {
-    "url": "https://github.com/bbenoist/lint-ts-index",
+    "url": "https://github.com/bbenoist/node-tools",
     "type": "git"
   },
   "scripts": {
-    "build": "rushx build:ts && rushx build:doc",
-    "build:ts": "tsc",
-    "build:ts:watch": "rushx build:ts --watch",
-    "build:doc": "api-extractor run --local --verbose && api-documenter generate --input-folder ../../common/temp/api-extractor --output-folder ../../doc/projects",
-    "clean": "rm -rf lib temp core.build.log core.build.error.log",
+    "build": "tsc",
+    "build:watch": "rushx build --watch",
+    "clean": "rm -rf lib eslint-plugin.build.log eslint-plugin.build.error.log",
     "lint": "rushx lint:eslint && rushx lint:prettier && rushx lint:ts-index",
     "lint:eslint": "eslint .",
     "lint:prettier": "rushx prettier -l",
@@ -24,7 +22,7 @@
     "fix": "rushx fix:eslint && rushx fix:prettier",
     "fix:eslint": "rushx lint:eslint --fix",
     "fix:prettier": "rushx prettier --write",
-    "prettier": "prettier \"**/*.ts\" \"**/*.js\" --ignore-path ../../.prettierignore -l",
+    "prettier": "prettier \"**/*.ts\" \"**/*.js\" --ignore-path ../../../.prettierignore -l",
     "rebuild": "rushx clean && rushx build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -32,9 +30,8 @@
     "typescript": "~4.2.3"
   },
   "dependencies": {
-    "class-validator": "^0.13.1",
-    "cosmiconfig": "^7.0.0",
-    "globby": "~11.0.3",
+    "@lint-ts-index/core": "workspace:*",
+    "@typescript-eslint/experimental-utils": "~4.19.0",
     "multimatch": "~5.0.0"
   },
   "devDependencies": {
@@ -42,8 +39,6 @@
     "@types/node": "~14.14.37",
     "eslint": "~7.23.0",
     "prettier": "~2.2.1",
-    "typescript": "~4.2.3",
-    "@microsoft/api-extractor": "~7.13.2",
-    "@microsoft/api-documenter": "~7.12.14"
+    "typescript": "~4.2.3"
   }
 }

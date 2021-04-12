@@ -1,28 +1,31 @@
 {
-  "name": "@lint-ts-index/eslint-plugin",
+  "name": "@lint-ts-index/cli",
   "version": "0.1.1",
   "description": "Check whether TS files are exported in index.ts",
-  "main": "lib/index.js",
-  "module": "lib/index.js",
-  "typings": "lib/index.d.ts",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "bin": {
+    "lint-ts-index": "./bin/lint-ts-index"
+  },
   "author": "Baptist BENOIST",
   "license": "MIT",
   "repository": {
-    "url": "https://github.com/bbenoist/lint-ts-index",
+    "url": "https://github.com/bbenoist/node-tools",
     "type": "git"
   },
   "scripts": {
-    "build": "tsc",
-    "build:watch": "rushx build --watch",
-    "clean": "rm -rf lib eslint-plugin.build.log eslint-plugin.build.error.log",
-    "lint": "rushx lint:eslint && rushx lint:prettier && rushx lint:ts-index",
+    "build": "rushx build:ts && rushx build:md",
+    "build:ts": "tsc",
+    "build:ts:watch": "rushx build:ts --watch",
+    "build:md": "md-magic --path '**/*.md' --config .markdown-magic.js --ignore 'node_modules,temp,dist,.rush'",
+    "clean": "rm -rf dist cli.build.log cli.build.error.log",
+    "lint": "rushx lint:eslint && rushx lint:prettier",
     "lint:eslint": "eslint .",
     "lint:prettier": "rushx prettier -l",
-    "lint:ts-index": "node ../cli/dist/index.js",
     "fix": "rushx fix:eslint && rushx fix:prettier",
     "fix:eslint": "rushx lint:eslint --fix",
     "fix:prettier": "rushx prettier --write",
-    "prettier": "prettier \"**/*.ts\" \"**/*.js\" --ignore-path ../../.prettierignore -l",
+    "prettier": "prettier \"**/*.ts\" \"**/*.js\" --ignore-path ../../../.prettierignore -l",
     "rebuild": "rushx clean && rushx build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -31,13 +34,15 @@
   },
   "dependencies": {
     "@lint-ts-index/core": "workspace:*",
-    "@typescript-eslint/experimental-utils": "~4.19.0",
-    "multimatch": "~5.0.0"
+    "commander": "~7.2.0"
   },
   "devDependencies": {
+    "@bb-tools/markdown-magic-utils": "workspace:*",
+    "@lint-ts-index/eslint-plugin": "workspace:*",
     "@rushstack/eslint-config": "~2.3.2",
     "@types/node": "~14.14.37",
     "eslint": "~7.23.0",
+    "markdown-magic": "~2.0.0",
     "prettier": "~2.2.1",
     "typescript": "~4.2.3"
   }

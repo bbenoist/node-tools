@@ -1,8 +1,8 @@
 # @lint-ts-index/cli
 
-[![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/bbenoist/lint-ts-index?label=Version&logo=git&sort=semver)](https://github.com/bbenoist/lint-ts-index/releases)
-[![License](https://img.shields.io/github/license/bbenoist/lint-ts-index?label=License&logo=github)](https://raw.githubusercontent.com/bbenoist/lint-ts-index/master/LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/bbenoist/lint-ts-index?label=Issues&logo=github)](https://github.com/bbenoist/lint-ts-index/issues)
+[![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/bbenoist/node-tools?label=Version&logo=git&sort=semver)](https://github.com/bbenoist/node-tools/releases)
+[![License](https://img.shields.io/github/license/bbenoist/node-tools?label=License&logo=github)](https://raw.githubusercontent.com/bbenoist/node-tools/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/bbenoist/node-tools?label=Issues&logo=github)](https://github.com/bbenoist/node-tools/issues)
 
 Purpose of this tool is to check that every files or subdirectories are exported in their corresponding `index.ts` files.
 
@@ -102,8 +102,8 @@ examples/simple/fail
 
 And `index.ts` content:
 
-<!-- AUTO-GENERATED-CONTENT:START (CODE:src=../../examples/simple/fail/index.ts) -->
-<!-- The below code snippet is automatically added from ../../examples/simple/fail/index.ts -->
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=../../../examples/simple/fail/index.ts) -->
+<!-- The below code snippet is automatically added from ../../../examples/simple/fail/index.ts -->
 ```ts
 export * from './bar';
 ```
@@ -123,8 +123,8 @@ To fix this error, you can either add the missing `export * from './foo';` line 
 
 Let's say that, in our case, we don't want to export the file. Then, content of the `.indexignore`, would have the following content:
 
-<!-- AUTO-GENERATED-CONTENT:START (CODE:src=../../examples/simple/pass/.indexignore&syntax=txt) -->
-<!-- The below code snippet is automatically added from ../../examples/simple/pass/.indexignore -->
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=../../../examples/simple/pass/.indexignore&syntax=txt) -->
+<!-- The below code snippet is automatically added from ../../../examples/simple/pass/.indexignore -->
 ```txt
 foo.ts
 ```
@@ -189,8 +189,8 @@ If you believe it's an error, please add an exclusion in .indexignore
 Because we need to respect the rules above, the solution here is not to export the reported files and directories.
 We have to write a .indexignore file with these lines:
 
-<!-- AUTO-GENERATED-CONTENT:START (CODE:src=../../examples/advanced/pass/.indexignore&syntax=txt) -->
-<!-- The below code snippet is automatically added from ../../examples/advanced/pass/.indexignore -->
+<!-- AUTO-GENERATED-CONTENT:START (CODE:src=../../../examples/advanced/pass/.indexignore&syntax=txt) -->
+<!-- The below code snippet is automatically added from ../../../examples/advanced/pass/.indexignore -->
 ```txt
 foo.ts
 private
@@ -204,7 +204,7 @@ Then, the linter should pass and still detect new additions in the directories w
 
 ## Configuration
 
-See [Configuration File Formats](https://github.com/bbenoist/lint-ts-index/tree/master/doc/config-files.md).
+See [Configuration File Formats](https://github.com/bbenoist/node-tools/tree/master/doc/config-files.md).
 
 ## See also
 
@@ -213,4 +213,4 @@ See [Configuration File Formats](https://github.com/bbenoist/lint-ts-index/tree/
 
 ## License
 
-This project is licensed under the MIT license which you can find a copy in the [`LICENSE`](https://raw.githubusercontent.com/bbenoist/lint-ts-index/master/LICENSE) file.
+This project is licensed under the MIT license which you can find a copy in the [`LICENSE`](https://raw.githubusercontent.com/bbenoist/node-tools/master/LICENSE) file.

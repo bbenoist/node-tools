@@ -8,6 +8,6 @@
 
 |  Package | Description |
 |  --- | --- |
+|  [@bb-tools/markdown-magic-utils](./markdown-magic-utils.md) |  |
 |  [@lint-ts-index/core](./core.md) |  |
-|  [@lint-ts-index/markdown-magic-utils](./markdown-magic-utils.md) |  |
 

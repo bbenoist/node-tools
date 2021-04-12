@@ -3,7 +3,7 @@ importers:
     specifiers: {}
   ../../examples:
     devDependencies:
-      '@lint-ts-index/eslint-plugin': link:../projects/eslint-plugin
+      '@lint-ts-index/eslint-plugin': link:../projects/lint-ts-index/eslint-plugin
       '@rushstack/eslint-config': 2.3.2_eslint@7.23.0+typescript@4.2.3
       eslint: 7.23.0
       prettier: 2.2.1
@@ -14,20 +14,21 @@ importers:
       eslint: ~7.23.0
       prettier: ~2.2.1
       typescript: ~4.2.3
-  ../../projects/cli:
+  ../../projects/lint-ts-index/cli:
     dependencies:
       '@lint-ts-index/core': link:../core
       commander: 7.2.0
     devDependencies:
+      '@bb-tools/markdown-magic-utils': link:../../markdown-magic-utils
       '@lint-ts-index/eslint-plugin': link:../eslint-plugin
       '@rushstack/eslint-config': 2.3.2_eslint@7.23.0+typescript@4.2.3
       '@types/node': 14.14.37
       eslint: 7.23.0
       markdown-magic: 2.0.0
-      markdown-magic-utils: link:../markdown-magic-utils
       prettier: 2.2.1
       typescript: 4.2.3
     specifiers:
+      '@bb-tools/markdown-magic-utils': workspace:*
       '@lint-ts-index/core': workspace:*
       '@lint-ts-index/eslint-plugin': workspace:*
       '@rushstack/eslint-config': ~2.3.2
@@ -35,10 +36,9 @@ importers:
       commander: ~7.2.0
       eslint: ~7.23.0
       markdown-magic: ~2.0.0
-      markdown-magic-utils: workspace:*
       prettier: ~2.2.1
       typescript: ~4.2.3
-  ../../projects/core:
+  ../../projects/lint-ts-index/core:
     dependencies:
       class-validator: 0.13.1
       cosmiconfig: 7.0.0
@@ -64,7 +64,7 @@ importers:
       multimatch: ~5.0.0
       prettier: ~2.2.1
       typescript: ~4.2.3
-  ../../projects/eslint-plugin:
+  ../../projects/lint-ts-index/eslint-plugin:
     dependencies:
       '@lint-ts-index/core': link:../core
       '@typescript-eslint/experimental-utils': 4.19.0_eslint@7.23.0+typescript@4.2.3

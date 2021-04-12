@@ -171,8 +171,8 @@
    * To remove these restrictions, you could set projectFolderMinDepth=1
    * and set projectFolderMaxDepth to a large number.
    */
-  // "projectFolderMinDepth": 2,
-  // "projectFolderMaxDepth": 2,
+  "projectFolderMinDepth": 1,
+  "projectFolderMaxDepth": 3,
 
   /**
    * Today the npmjs.com registry enforces fairly strict naming rules for packages, but in the early
@@ -282,7 +282,7 @@
      * your PR branch, and in this situation "rush change" will also automatically invoke "git fetch"
      * to retrieve the latest activity for the remote master branch.
      */
-    "url": "git@github.com:bbenoist/lint-ts-index.git",
+    "url": "git@github.com:bbenoist/node-tools.git",
     /**
      * The default branch name. This tells "rush change" which remote branch to compare against.
      * The default value is "master"
@@ -381,17 +381,17 @@
   "projects": [
     {
       "packageName": "@lint-ts-index/core",
-      "projectFolder": "projects/core",
+      "projectFolder": "projects/lint-ts-index/core",
       "shouldPublish": true
     },
     {
       "packageName": "@lint-ts-index/cli",
-      "projectFolder": "projects/cli",
+      "projectFolder": "projects/lint-ts-index/cli",
       "shouldPublish": true
     },
     {
       "packageName": "@lint-ts-index/eslint-plugin",
-      "projectFolder": "projects/eslint-plugin",
+      "projectFolder": "projects/lint-ts-index/eslint-plugin",
       "shouldPublish": true
     },
     {
@@ -400,7 +400,7 @@
       "shouldPublish": false
     },
     {
-      "packageName": "@lint-ts-index/markdown-magic-utils",
+      "packageName": "@bb-tools/markdown-magic-utils",
       "projectFolder": "projects/markdown-magic-utils",
       "shouldPublish": false
     }

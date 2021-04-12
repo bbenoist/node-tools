@@ -5,7 +5,7 @@
   "author": "Baptist BENOIST",
   "license": "MIT",
   "repository": {
-    "url": "https://github.com/bbenoist/lint-ts-index",
+    "url": "https://github.com/bbenoist/node-tools",
     "type": "git"
   },
   "scripts": {
