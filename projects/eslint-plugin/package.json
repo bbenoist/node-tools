@@ -1,6 +1,6 @@
 {
   "name": "@lint-ts-index/eslint-plugin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Check whether TS files are exported in index.ts",
   "main": "lib/index.js",
   "module": "lib/index.js",

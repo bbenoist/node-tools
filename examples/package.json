@@ -1,6 +1,6 @@
 {
   "name": "@lint-ts-index/examples",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Example project to demonstrate the use of the linter",
   "author": "Baptist BENOIST",
   "license": "MIT",
