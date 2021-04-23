@@ -1,0 +1,45 @@
+{
+  "name": "@lint-package-json/eslint-plugin",
+  "version": "0.1.1",
+  "description": "Command-line utility which helps linting and fixing package.json files.",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "author": "Baptist BENOIST",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/bbenoist/node-tools",
+    "type": "git"
+  },
+  "scripts": {
+    "build": "rushx build:ts",
+    "build:ts": "tsc --build tsconfig.build.json",
+    "build:watch": "rushx build:ts --watch",
+    "clean": "rm -rf lib eslint-plugin.build.log eslint-plugin.build.error.log",
+    "lint": "rushx lint:eslint && rushx lint:prettier && rushx lint:ts-index",
+    "lint:eslint": "eslint .",
+    "lint:prettier": "rushx prettier -l",
+    "lint:package-json": "node ../cli/dist/index.js",
+    "fix": "rushx fix:eslint && rushx fix:prettier",
+    "fix:eslint": "rushx lint:eslint --fix",
+    "fix:prettier": "rushx prettier --write",
+    "prettier": "prettier \"**/*.ts\" \"**/*.js\" --ignore-path ../../../.prettierignore -l",
+    "rebuild": "rushx clean && rushx build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "peerDependencies": {
+    "eslint": ">=0.8.0"
+  },
+  "dependencies": {
+    "@lint-package-json/core": "workspace:*",
+    "@typescript-eslint/experimental-utils": "~4.19.0",
+    "multimatch": "~5.0.0"
+  },
+  "devDependencies": {
+    "@rushstack/eslint-config": "~2.3.3",
+    "@types/node": "~14.14.37",
+    "eslint": "~7.23.0",
+    "prettier": "~2.2.1",
+    "typescript": "~4.2.4"
+  }
+}

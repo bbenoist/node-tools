@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json.schemastore.org/tsconfig",
+  "extends": "../../common/config/tsconfig.node.json",
+  "include": ["src", "test"],
+  "exclude": ["./jest.config.ts"],
+  "compilerOptions": {
+    "typeRoots": [
+      "./node_modules/@types",
+      "./node_modules/@bb-tools/types-sync-rpc/types"
+    ]
+  }
+}

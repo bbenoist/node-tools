@@ -50,6 +50,13 @@
       "enableParallelism": true,
       "safeForSimultaneousRushProcesses": false,
       "ignoreDependencyOrder": false
+    },
+    {
+      "commandKind": "global",
+      "name": "lint:package-json",
+      "summary": "Lint package.json file content",
+      "safeForSimultaneousRushProcesses": false,
+      "shellCommand": "node ./projects/lint-package-json/cli check --input 'projects/*/package.json' --input 'projects/*/*/package.json'"
     }
     // {
     //   /**

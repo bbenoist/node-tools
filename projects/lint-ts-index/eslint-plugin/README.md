@@ -41,9 +41,9 @@ The most minimal ESLint configuration to enable lint-ts-index should look like t
 ```js
 module.exports = {
   plugins: ['@lint-ts-index'],
-  rules: {
-    '@lint-ts-index/exports': 'error'
-  }
+  extends: [
+    'plugin:@lint-ts-index/eslint-plugin/recommended'
+  ]
 };
 ```
 

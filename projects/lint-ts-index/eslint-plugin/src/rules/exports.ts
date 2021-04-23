@@ -10,7 +10,7 @@ import {basename, relative} from 'path';
 
 const createRule = ESLintUtils.RuleCreator(
   () =>
-    `https://github.com/bbenoist/node-tools/blob/master/projects/eslint-plugin/README.md`
+    `https://github.com/bbenoist/node-tools/blob/master/projects/lint-ts-index/eslint-plugin/README.md`
 );
 
 type MessageIds = 'missing';

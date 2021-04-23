@@ -1,0 +1,10 @@
+sort:
+  - off:
+    - scripts
+  - info:
+    - .*Dependencies
+  - error: .*
+
+dependencyStrategy:
+  - error
+  -

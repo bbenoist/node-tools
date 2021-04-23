@@ -1,0 +1,34 @@
+{
+  "name": "@bb-tools/types-spdx-license-ids",
+  "version": "0.1.1",
+  "description": "TypeScript types for the spdx-license-id NPM package",
+  "types": "./types/index.d.ts",
+  "author": "Baptist BENOIST",
+  "license": "MIT",
+  "scripts": {
+    "build": "ts-node --project ./tsconfig.json ./build.ts",
+    "clean": "",
+    "lint:check": "rushx lint:eslint:check && rushx lint:prettier:check",
+    "lint:eslint:check": "eslint .",
+    "lint:eslint:fix": "rushx lint:eslint:check --fix",
+    "lint:fix": "rushx lint:eslint:fix && rushx lint:prettier:fix",
+    "lint:prettier:check": "rushx prettier -l",
+    "lint:prettier:fix": "rushx prettier --write",
+    "prettier": "prettier \"**/*.ts\" \"**/*.js\" --ignore-path ../../../.prettierignore -l",
+    "rebuild": "",
+    "test": "",
+    "test:coverage": ""
+  },
+  "peerDependencies": {
+    "spdx-license-ids": "~3.0.7"
+  },
+  "devDependencies": {
+    "@rushstack/eslint-config": "~2.3.3",
+    "eslint": "~7.23.0",
+    "prettier": "~2.2.1",
+    "spdx-license-ids": "~3.0.7",
+    "typescript": "~4.2.4",
+    "change-case": "~4.1.2",
+    "@types/node": "~14.14.37"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "name": "@lint-package-json/cli",
+  "version": "0.0.1",
+  "description": "Command-line utility which helps linting and fixing package.json files.",
+  "author": "Baptist BENOIST",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/bbenoist/node-tools",
+    "type": "git"
+  },
+  "main": "dist/main.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "lint-package-json": "./bin/lint-package-json"
+  },
+  "scripts": {
+    "build": "rushx build:ts && rushx build:doc",
+    "build:doc": "api-extractor run --local --verbose && api-documenter generate --input-folder ../../../common/temp/api-extractor/lint-package-json --output-folder ../../../doc/lint-package-json/api",
+    "build:ts": "tsc --build tsconfig.build.json",
+    "build:ts:watch": "rushx build:ts --watch",
+    "build:watch": "rushx build:ts:watch",
+    "clean": "rimraf coverage dist *.tsbuildinfo .eslintcache",
+    "lint:eslint:check": "eslint --report-unused-disable-directives .",
+    "lint:check": "rushx lint:eslint:check && rushx lint:prettier:check",
+    "lint:eslint:fix": "rushx lint:eslint:check --fix",
+    "lint:fix": "rushx lint:eslint:fix && rushx lint:prettier:fix",
+    "lint:prettier:check": "rushx lint:prettier:cli -l",
+    "lint:prettier:cli": "prettier \"**/*.ts\" \"**/*.js\" --ignore-path ../../../.prettierignore",
+    "lint:prettier:fix": "rushx lint:prettier:cli --write",
+    "rebuild": "rushx clean && rushx build",
+    "test": "rushx test:jest",
+    "test:ci": "test:jest:coverage",
+    "test:coverage": "rushx test:jest:coverage",
+    "test:jest": "jest --config=./jest.config.ts",
+    "test:jest:coverage": "rushx test:jest --coverage"
+  },
+  "dependencies": {
+    "@lint-package-json/core": "workspace:*",
+    "@rushstack/ts-command-line": "~4.7.9",
+    "fs-extra": "~9.1.0",
+    "globby": "~11.0.3",
+    "tslib": "~2.2.0"
+  },
+  "devDependencies": {
+    "@jest/types": "~26.6.2",
+    "@microsoft/api-documenter": "~7.12.14",
+    "@microsoft/api-extractor": "~7.13.2",
+    "@rushstack/eslint-config": "~2.3.3",
+    "@types/fs-extra": "~9.0.11",
+    "@types/jest": "~26.0.22",
+    "@types/node": "~14.14.37",
+    "eslint": "~7.23.0",
+    "jest": "~26.6.0",
+    "jest-standard-reporter": "~2.0.0",
+    "prettier": "~2.2.1",
+    "rimraf": "~3.0.2",
+    "ts-jest": "~26.5.4",
+    "ts-node": "~9.1.1",
+    "typescript": "~4.2.4"
+  }
+}

@@ -16,7 +16,7 @@
    * path segment in the "$schema" field for all your Rush config files.  This will ensure
    * correct error-underlining and tab-completion for editors such as VS Code.
    */
-  "rushVersion": "5.42.3",
+  "rushVersion": "5.43.0",
 
   /**
    * The next field selects which package manager should be installed and determines its version.
@@ -26,7 +26,7 @@
    * Specify one of: "pnpmVersion", "npmVersion", or "yarnVersion".  See the Rush documentation
    * for details about these alternatives.
    */
-  "pnpmVersion": "5.15.2",
+  "pnpmVersion": "6.0.2",
 
   // "npmVersion": "4.5.0",
   // "yarnVersion": "1.9.4",
@@ -380,6 +380,26 @@
    */
   "projects": [
     {
+      "packageName": "@lint-package-json/core",
+      "projectFolder": "projects/lint-package-json/core",
+      "shouldPublish": true
+    },
+    {
+      "packageName": "@lint-package-json/cli",
+      "projectFolder": "projects/lint-package-json/cli",
+      "shouldPublish": true
+    },
+    {
+      "packageName": "@lint-package-json/eslint-plugin",
+      "projectFolder": "projects/lint-package-json/eslint-plugin",
+      "shouldPublish": true
+    },
+    {
+      "packageName": "@lint-package-json/examples",
+      "projectFolder": "projects/lint-package-json/examples",
+      "shouldPublish": false
+    },
+    {
       "packageName": "@lint-ts-index/core",
       "projectFolder": "projects/lint-ts-index/core",
       "shouldPublish": true
@@ -396,12 +416,32 @@
     },
     {
       "packageName": "@lint-ts-index/examples",
-      "projectFolder": "examples",
+      "projectFolder": "projects/lint-ts-index/examples",
       "shouldPublish": false
+    },
+    {
+      "packageName": "@bb-tools/dot-to-ascii",
+      "projectFolder": "projects/dot-to-ascii",
+      "shouldPublish": true
     },
     {
       "packageName": "@bb-tools/markdown-magic-utils",
       "projectFolder": "projects/markdown-magic-utils",
+      "shouldPublish": true
+    },
+    {
+      "packageName": "@bb-tools/package-json",
+      "projectFolder": "projects/package-json",
+      "shouldPublish": true
+    },
+    {
+      "packageName": "@bb-tools/build-doc",
+      "projectFolder": "projects/build-doc",
+      "shouldPublish": false
+    },
+    {
+      "packageName": "@bb-tools/types-spdx-license-ids",
+      "projectFolder": "projects/types/spdx-license-ids",
       "shouldPublish": false
     }
     // {
