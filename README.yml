@@ -1,0 +1,36 @@
+join:
+  items:
+  - ignore:
+    - each:
+        in: {entries: {parseYaml: {readFile: README.meta.yml}}}
+        do:
+          set:
+            name: {get: 'item.[0]'}
+            value: {get: 'item.[1]'}
+    - set:
+        name: rushJson
+        value: {parseJson: {readFile: 'rush.json'}}
+    - set:
+        name: projectsPackageJson
+        value:
+          toRecord:
+            from:
+              each:
+                var: rushProject
+                in: {get: rushJson.projects}
+                do:
+                - get: rushProject.packageName
+                - parseJson:
+                    readFile:
+                      join: [{get: {name: rushProject.projectFolder}}, '/package.json']
+  - md:section:
+      title: {get: title}
+      body:
+      - join:
+          separator: "\n"
+          items:
+          - include: README.generated-with.yml
+          - include: README.introduction.yml
+          - include: README.repository-information.yml
+          - include: README.dependency-graph.yml
+          - include: README.license.yml

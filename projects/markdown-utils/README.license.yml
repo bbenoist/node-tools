@@ -1,0 +1,15 @@
+join:
+  separator: "\n"
+  items:
+  - mdHeader: {text: License, level: 2}
+  - ''
+  - join:
+    - 'This project is licensed under the '
+    - get: {name: 'packageJson.license'}
+    - ' license which you can find a copy in the '
+    - md:link:
+        body: LICENSE
+        url: https://raw.githubusercontent.com/bbenoist/node-tools/master/LICENSE
+    - ' file.'
+  - ''
+  - md:codeBlock: {readFile: LICENSE}

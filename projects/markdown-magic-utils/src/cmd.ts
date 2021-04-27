@@ -1,5 +1,5 @@
+import {codeBlock} from '@bb-tools/markdown-utils';
 import {spawnSync} from 'child_process';
-import {codeBlock} from './code-block';
 import shellEscape from 'shell-escape';
 
 /**

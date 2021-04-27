@@ -1,0 +1,72 @@
+{
+  "name": "@bb-tools/markdown-utils",
+  "version": "0.1.0",
+  "description": "A set of helpers to generate Markdown content",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "author": "Baptist BENOIST",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/bbenoist/node-tools",
+    "type": "git"
+  },
+  "files": [
+    "README.md",
+    "LICENSE",
+    "lib"
+  ],
+  "scripts": {
+    "build": "rushx build:ts && rushx build:doc",
+    "build:ts": "tsc --build tsconfig.build.json",
+    "build:ts:watch": "rushx build:ts --watch",
+    "build:doc": "api-extractor run --local --verbose && api-documenter generate --input-folder ../../common/temp/api-extractor/tools --output-folder ../../doc/tools/api",
+    "clean": "rm -rf lib temp core.build.log core.build.error.log",
+    "lint": "rushx lint:eslint && rushx lint:prettier && rushx lint:ts-index",
+    "lint:fix": "rushx lint:eslint:fix && rushx lint:prettier:fix",
+    "lint:eslint": "eslint .",
+    "lint:eslint:fix": "rushx lint:eslint --fix",
+    "lint:prettier": "rushx lint:prettier:cli -l",
+    "lint:prettier:fix": "rushx lint:prettier:cli --write",
+    "lint:prettier:cli": "prettier \"**/*.ts\" \"**/*.js\" --ignore-path ../../.prettierignore -l",
+    "lint:ts-index": "node ../lint-ts-index/cli/dist/index.js",
+    "rebuild": "rushx clean && rushx build",
+    "start": "nodemon",
+    "test": "rushx test:jest",
+    "test:coverage": "rushx test:jest:coverage",
+    "test:jest": "jest --passWithNoTests",
+    "test:jest:coverage": "rushx test:jest --coverage"
+  },
+  "dependencies": {
+    "@bb-tools/dot-to-ascii": "workspace:*",
+    "@bb-tools/ts-utils": "workspace:*",
+    "@bb-tools/node-utils": "workspace:*",
+    "read-pkg": "~5.2.0",
+    "yaml": "~1.10.2",
+    "@microsoft/rush-lib": "~5.45.4",
+    "strip-json-comments": "~3.1.1",
+    "express": "~4.17.1",
+    "markdown-it": "~12.0.6",
+    "xml-js": "~1.6.11",
+    "fs-extra": "~9.1.0",
+    "commander": "~7.2.0"
+  },
+  "devDependencies": {
+    "@jest/types": "~26.6.2",
+    "@rushstack/eslint-config": "~2.3.3",
+    "@types/jest": "~26.0.22",
+    "@types/node": "~14.14.37",
+    "eslint": "~7.23.0",
+    "jest": "~26.6.0",
+    "jest-standard-reporter": "~2.0.0",
+    "prettier": "~2.2.1",
+    "ts-jest": "~26.5.4",
+    "typescript": "~4.2.4",
+    "@microsoft/api-extractor": "~7.13.2",
+    "@microsoft/api-documenter": "~7.12.14",
+    "@types/express": "~4.17.11",
+    "nodemon": "~2.0.7",
+    "@types/markdown-it": "~12.0.1",
+    "@types/fs-extra": "~9.0.11"
+  }
+}

@@ -1,0 +1,71 @@
+md:section:
+  title: Dependency graph
+  body:
+  - md:codeBlock:
+      dotToAscii:
+        boxart: false
+        dot:
+          join:
+            separator: "\n"
+            items:
+            - 'digraph D {'
+            - join:
+                separator: "\n"
+                items:
+                  flatten:
+                    depth: 3
+                    items:
+                    - each:
+                        var: proj
+                        in: {entries: {get: projectsPackageJson}}
+                        do:
+                        - join:
+                          - node_
+                          - toString: {get: index}
+                          - ' [label="'
+                          - get: 'proj.[0]'
+                          - '"];'
+                    - each:
+                        var: proj
+                        index: projIndex
+                        in: {entries: {get: projectsPackageJson}}
+                        do:
+                        - each:
+                            var: dep
+                            in:
+                              filter:
+                                var: projDep
+                                if:
+                                  and:
+                                    values:
+                                    - not: {equals: {a: {get: 'proj.[0]'}, b: '@bb-tools/build-doc'}}
+                                    - equals: {a: 'workspace:*', b: {get: 'projDep.[1]'}}
+                                in:
+                                  flatten:
+                                  - if:
+                                      condition: {toBoolean: {get: 'proj.[1].dependencies'}}
+                                      then: {entries: {get: 'proj.[1].dependencies'}}
+                                      else: []
+                                  - {entries: {get: 'proj.[1].devDependencies'}}
+                            do:
+                              join:
+                              - node_
+                              - toString: {get: projIndex}
+                              - ' -> node_'
+                              - toString:
+                                  indexOf:
+                                    in: {entries: {get: projectsPackageJson}}
+                                    if: {equals: {a: {get: 'item.[0]'}, b: {get: 'dep.[0]'}}}
+
+            - '}'
+  - md:italic:
+      join:
+      - 'Generated automatically with '
+      - md:link:
+          url: https://npmjs.com/package/@bb-tools/dot-to-ascii
+          body: '@bb-tools/dot-to-ascii'
+      - ' thanks to '
+      - md:link:
+          url: https://github.com/ggerganov/dot-to-ascii
+          body: 'ggerganov/dot-to-ascii'
+      - '.'

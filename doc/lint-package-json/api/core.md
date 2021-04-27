@@ -16,7 +16,6 @@
 |  Function | Description |
 |  --- | --- |
 |  [lintPackageJson(input, fix, configFile)](./core.lintpackagejson.md) | Lints and eventually fix the <code>package.json</code> files matching the given glob patterns given as argument. |
-|  [readPkg(fileName)](./core.readpkg.md) | Reads the content of a <code>package.json</code> file |
 
 ## Interfaces
 
@@ -25,8 +24,6 @@
 |  [Config](./core.config.md) | Linter configuration - User scope |
 |  [LinterRule](./core.linterrule.md) | Linter validation rule |
 |  [LinterRuleContext](./core.linterrulecontext.md) | Context given to every [LinterRule](./core.linterrule.md) |
-|  [Pkg](./core.pkg.md) | Typical content of a package.json file |
-|  [PkgAuthor](./core.pkgauthor.md) | A package author |
 |  [PkgInfo](./core.pkginfo.md) | Information relative to a package.json file |
 |  [RuleConfig](./core.ruleconfig.md) | Base type for every rule configuration |
 |  [RulesConfig](./core.rulesconfig.md) | Linter rules configuration - User scope |

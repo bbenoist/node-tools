@@ -1,4 +1,4 @@
-import {Pkg} from './pkg';
+import {PackageJson} from 'read-pkg';
 
 /**
  * Information relative to a package.json file
@@ -8,5 +8,5 @@ export interface PkgInfo {
   /** Path to the package.json file */
   file: string;
   /** package.json content */
-  data: Pkg;
+  data: PackageJson;
 }

@@ -9,5 +9,6 @@
 |  Package | Description |
 |  --- | --- |
 |  [@bb-tools/dot-to-ascii](./dot-to-ascii.md) |  |
-|  [@bb-tools/markdown-magic-utils](./markdown-magic-utils.md) |  |
+|  [@bb-tools/node-utils](./node-utils.md) |  |
+|  [@bb-tools/ts-utils](./ts-utils.md) |  |
 

@@ -1,5 +1,5 @@
+import {PackageJson} from 'read-pkg';
 import {MESSAGES} from '../../../constants';
-import {Pkg} from '../../../model';
 import {RuleTestCase, RuleTestCaseData} from '../rule-test-case';
 
 const valid: RuleTestCaseData[] = ([
@@ -64,7 +64,7 @@ const invalidData: {
 
 const invalid: RuleTestCaseData[] = invalidData.map(
   ({invalidProps, data, fixed}) => ({
-    data: Object.entries<string[]>(data).reduce<Pkg>(
+    data: Object.entries<string[]>(data).reduce<PackageJson>(
       (pkg, [name, deps]) => ({
         ...pkg,
         [name]: deps.reduce<Record<string, string>>(
@@ -78,7 +78,7 @@ const invalid: RuleTestCaseData[] = invalidData.map(
       reports: invalidProps.map(invalidProp => MESSAGES.reportSort(invalidProp))
     },
     fixed: {
-      data: Object.entries<string[]>(fixed).reduce<Pkg>(
+      data: Object.entries<string[]>(fixed).reduce<PackageJson>(
         (pkg, [name, deps]) => ({
           ...pkg,
           [name]: deps.reduce<Record<string, string>>(

@@ -1,4 +1,5 @@
-import {Pkg, UserConfig} from '../../model';
+import {PackageJson} from 'read-pkg';
+import {UserConfig} from '../../model';
 import * as rules from '..';
 
 /**
@@ -8,7 +9,7 @@ export interface RuleTestCase {
   /** The constant name of the rule to test */
   rule: keyof typeof rules;
   /** The package.json data to validate */
-  data: Pkg;
+  data: PackageJson;
   /** The user configuration to use */
   config?: UserConfig;
   /** Expected data */
@@ -26,7 +27,7 @@ export interface RuleTestCase {
      * @remarks
      * If this property is not specified, data integrity will be verified
      */
-    data?: Pkg;
+    data?: PackageJson;
   };
 }
 

@@ -1,0 +1,66 @@
+join:
+  separator: "\n"
+  items:
+  - set:
+      name: packageJson
+      value: {parseJson: { readFile: package.json }}
+  - set:
+      name: rushJson
+      value: {parseJson: {readFile: '../../rush.json'}}
+  - set:
+      name: projectsPackageJson
+      value:
+        toRecord:
+          from:
+            each:
+              var: rushProject
+              in: {get: rushJson.projects}
+              do:
+              - get: rushProject.packageName
+              - parseJson:
+                  readFile:
+                    join: ['../../', {get: {name: rushProject.projectFolder}}, '/package.json']
+  - mdHeader: {text: {get: {name: packageJson.name}}, level: 1}
+  - ''
+  - include: README.coolness-badge.json
+  - md:link:
+      url: https://github.com/bbenoist/node-tools/releases
+      body:
+        md:image:
+          alt: GitHub tag (latest SemVer)
+          url: https://img.shields.io/github/v/tag/bbenoist/node-tools?label=Version&logo=git&sort=semver
+  - md:link:
+      url: https://raw.githubusercontent.com/bbenoist/node-tools/master/LICENSE
+      body:
+        md:image:
+          alt: License
+          url: https://img.shields.io/github/license/bbenoist/node-tools?label=License&logo=github
+  - md:link:
+      url: https://github.com/bbenoist/node-tools/issues
+      body:
+        md:image:
+          alt: GitHub issues
+          url: https://img.shields.io/github/issues/bbenoist/node-tools?label=Issues&logo=github
+  - ''
+  - join:
+    - A TypeScript and JavaScript wrapper around the
+    - md:link:
+        body: dot-to-ascii online service
+        url: https://github.com/ggerganov/dot-to-ascii
+    - '.'
+  - ''
+  - mdHeader: {text: Usage, level: 2}
+  - ''
+  - join:
+    - 'See '
+    - md:link:
+        body: Api Documentation
+        url: https://github.com/bbenoist/node-tools/tree/master/doc/projects/dot-to-ascii.md
+    - '.'
+  - ''
+  - mdHeader: {text: Dependencies, level: 2}
+  - ''
+  - include: README.dependencies-table.yml
+  - ''
+  - include: README.license.yml
+  - ''

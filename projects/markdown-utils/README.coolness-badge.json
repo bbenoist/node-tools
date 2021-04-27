@@ -1,0 +1,16 @@
+{
+  "md:link": {
+    "url": "https://github.com/bbenoist/node-tools/releases",
+    "body": {
+      "md:shield": {
+        "type": "static",
+        "label": "Coolness",
+        "message": "very high",
+        "color": "ff00ff",
+        "style": "for-the-badge",
+        "logo": "ferrari",
+        "logoColor": "ffffff"
+      }
+    }
+  }
+}

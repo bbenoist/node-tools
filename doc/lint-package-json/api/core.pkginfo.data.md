@@ -9,5 +9,5 @@ package.json content
 <b>Signature:</b>
 
 ```typescript
-data: Pkg;
+data: PackageJson;
 ```

@@ -1,3 +1,4 @@
+import {PackageJson} from 'read-pkg';
 import {MESSAGES} from '../constants';
 import {detectDependencyStrategy} from '../helpers';
 import {DependencyStrategy, LinterRule} from '../model';
@@ -15,7 +16,9 @@ export const DEPENDENCY_STRATEGY_RULE: LinterRule = {
   exec({config, pkg, fix, report}) {
     Object.entries(config.rules.dependencyStrategy).forEach(
       ([propName, strategy]) => {
-        const value = pkg.data[propName];
+        const value = pkg.data[
+          propName as keyof PackageJson
+        ] as PackageJson['dependencies'];
         if (value === undefined) return;
         if (typeof value !== 'object') {
           report(MESSAGES.reportType(propName));

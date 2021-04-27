@@ -1,0 +1,12 @@
+md:section:
+  title: License
+  body:
+  - join:
+    - 'Unless specified otherwise in each project directory, source code of this repository is licensed under the '
+    - get: license
+    - ' license which you can find a copy in the '
+    - md:link:
+        body: LICENSE
+        url: https://raw.githubusercontent.com/bbenoist/node-tools/master/LICENSE
+    - ' file.'
+  - md:codeBlock: {readFile: LICENSE}

@@ -1,0 +1,135 @@
+title: Baptist BENOIST Node.JS tools
+body:
+- set:
+    name: projects
+    eval:
+      json:
+        path: rush.json
+        property: projects
+- table:
+    header:
+    -
+      - each:
+          items: [aaa, bbb, ccc]
+          body:
+          - get: item
+    rows:
+      - [a1, bb1, ccc1]
+- 'This is the monorepo for most of my personal Node.JS projects.'
+- 'It contains the source code for the following NPM packages:'
+- set:
+    name: projectsTable
+    value:
+      if:
+        condition:
+          fileExists: rush.json
+        body:
+          - rush: projectsTable
+- get: projectsTable
+-
+  - italic:
+    -
+      - 'This page has been generated with '
+      - link:
+          url:
+            rush:
+              project: '@bb-tools/markdown-utils'
+              property: 'firstProjectFolder'
+          body: markdown-utils
+      - '.'
+- section:
+    title: Contributing
+    body:
+    -
+      -
+        - 'As-long as you know '
+        - link:
+            body: how to write commit messages
+            url: https://www.freecodecamp.org/news/writing-good-commit-messages-a-practical-guide/#how-to-write-good-commit-messages
+        - ', I can accept your pull-request.'
+    - bold: Don't forget however to open a new issue before starting to work on big changes since I might not accept them.
+    -
+      -
+        - 'This monorepo is managed by '
+        - link:
+            body: Rush
+            url: https://rushjs.io/
+        - '.'
+      -
+        - Which means that you need to use '
+        - code: rush
+        - ' and '
+        - code: rushx
+        - ' commands instead of calling '
+        - code: npm
+        - ' or '
+        - code: yarn
+        - '.'
+    - 'To update dependencies and build the project, just use:'
+    - codeBlock: rush update && rush build
+    -
+      -
+        - 'Please read the '
+        - link:
+            body: Rush documentation
+            url: https://rushjs.io/pages/developer/new_developer/
+        - ' for more advanced usage.'
+    - section:
+        title: Supported versions
+        body:
+        - table:
+            header:
+            - Module
+            - Version
+            rows:
+            -
+              - Rush
+              - code:
+                  rush: rushVersion
+            -
+              - PNPM
+              - code:
+                  rush: pnpmVersion
+            -
+              - Node
+              - code:
+                  rush: nodeSupportedVersionRange
+    - section:
+        title: Repository information
+        body:
+        -
+          -
+            - set:
+                name: monorepoUrl
+                value:
+                  json:
+                    path: rush.json
+                    property: repository.url
+            - bold: 'Repository URL:'
+            - ' '
+            - link:
+                url:
+                  get: monorepoUrl
+                body:
+                  code:
+                    get: monorepoUrl
+- section:
+    title: License
+    body:
+    -
+      -
+        - 'These projects are licensed under the '
+        - packageJson:
+            property: license
+            cwd:
+              rush: firstProjectFolder
+        - ' license which you can find a copy in each project '
+        - link:
+            body: LICENSE
+            url: https://raw.githubusercontent.com/bbenoist/node-tools/master/LICENS
+        - ' file and at the root of this repository.'
+    - section:
+        title: License details
+        body:
+        - codeBlock:
+          - file: LICENSE

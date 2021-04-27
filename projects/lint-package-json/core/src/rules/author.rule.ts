@@ -1,6 +1,7 @@
 import {MESSAGES} from '../constants';
 import {validateString} from '../helpers/string.helpers';
-import {LinterRule, LinterRuleContext, PkgAuthor} from '../model';
+import {LinterRule, LinterRuleContext} from '../model';
+import {PackageJson} from 'read-pkg';
 
 export const AUTHOR_RULE: LinterRule = {
   name: 'author',
@@ -27,16 +28,18 @@ function getAuthorLine(ctx: LinterRuleContext): string | undefined {
     if (!author.name) {
       report(MESSAGES.reportMissingOrEmpty('author', 'name'));
     }
-    const typesOk = (['name', 'email', 'url'] as (keyof PkgAuthor)[]).some(
-      propName => {
-        const value = author[propName];
-        if (value && typeof value !== 'string') {
-          report(MESSAGES.reportType('author', propName));
-          return false;
-        }
-        return true;
+    const typesOk = ([
+      'name',
+      'email',
+      'url'
+    ] as (keyof PackageJson['author'])[]).some(propName => {
+      const value = author[propName];
+      if (value && typeof value !== 'string') {
+        report(MESSAGES.reportType('author', propName));
+        return false;
       }
-    );
+      return true;
+    });
     if (!author.name || !typesOk) return;
     const emailPart = author.email ? ` <${author.email}>` : '';
     const urlPart = author.url ? ` (${author.url})` : '';

@@ -1,5 +1,6 @@
+import {PackageJson} from 'read-pkg';
 import {MESSAGES} from '../../../constants';
-import {DEFAULT_CONFIG, Pkg} from '../../../model';
+import {DEFAULT_CONFIG} from '../../../model';
 import {RuleTestCase, RuleTestCaseData} from '../rule-test-case';
 
 const valid: RuleTestCaseData[] = ([
@@ -9,9 +10,10 @@ const valid: RuleTestCaseData[] = ([
     dependencies: {aaa: '^0.1.0', aabv: '^0.2.0', aac: '^0.3.0', daa: '^0.4.0'},
     devDependencies: {aaa: '^0.1.0', aac: '^0.3.0', daa: '^0.4.0'}
   }
-] as Pick<Pkg, 'dependencies' | 'devDependencies'>[]).map<RuleTestCaseData>(
-  data => ({data})
-);
+] as Pick<
+  PackageJson,
+  'dependencies' | 'devDependencies'
+>[]).map<RuleTestCaseData>(data => ({data}));
 
 const invalidData: {
   invalidProps: Record<string, string[]>;

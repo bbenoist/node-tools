@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json.schemastore.org/tsconfig",
+  "extends": "../../common/config/tsconfig.node.json",
+  "include": ["src", "test", "../ts-utils/src/fs.helpers.ts"],
+  "exclude": ["./jest.config.ts"],
+  "compilerOptions": {
+    "allowJs": true
+  }
+}

@@ -10,7 +10,6 @@ export default {
   coverageProvider: 'v8',
   coverageReporters: ['text', 'lcov', 'cobertura'],
   coverageThreshold: {
-    // FIXME - Coverage thresholds should be at 100% but ts-jest doesn't seems to support istambul ignore instructions
     global: {
       branches: 100,
       functions: 100,

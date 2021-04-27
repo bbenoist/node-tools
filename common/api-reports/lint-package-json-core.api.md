@@ -4,6 +4,8 @@
 
 ```ts
 
+import { PackageJson } from 'read-pkg';
+
 // @public
 export interface Config<TStringRuleConfig, TRulesConfig extends RulesConfig<TStringRuleConfig>> {
     extends?: string | string[];
@@ -87,46 +89,10 @@ export const NPM_NAME_REGEX: RegExp;
 export const NPM_PEOPLE_REGEX: RegExp;
 
 // @public
-export interface Pkg {
-    // (undocumented)
-    [name: string]: any;
-    // (undocumented)
-    author?: string | PkgAuthor;
-    // (undocumented)
-    dependencies?: Record<string, string>;
-    // (undocumented)
-    description?: string;
-    // (undocumented)
-    devDependencies?: Record<string, string>;
-    // (undocumented)
-    license?: string;
-    // (undocumented)
-    name?: string;
-    // (undocumented)
-    peerDependencies?: Record<string, string>;
-    // (undocumented)
-    private?: boolean;
-    // (undocumented)
-    scripts?: Record<string, string>;
-    // (undocumented)
-    version?: string;
-}
-
-// @public
-export interface PkgAuthor {
-    email?: string;
-    name?: string;
-    url?: string;
-}
-
-// @public
 export interface PkgInfo {
-    data: Pkg;
+    data: PackageJson;
     file: string;
 }
-
-// @public
-export function readPkg(fileName: string): Pkg;
 
 // @public
 export interface RuleConfig {

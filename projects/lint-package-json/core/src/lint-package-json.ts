@@ -1,7 +1,9 @@
-import {readFileSync, writeFileSync} from 'fs';
+import {sync as readPackageSync} from 'read-pkg';
+import {writeFileSync} from 'fs';
 import {sync as globby} from 'globby';
-import {LinterRule, LinterRuleContext, loadConfig, Pkg, PkgInfo} from './model';
+import {LinterRule, LinterRuleContext, loadConfig, PkgInfo} from './model';
 import * as rules from './rules';
+import {dirname} from 'path';
 
 /**
  * Lints and eventually fix the `package.json` files matching the given glob
@@ -20,7 +22,7 @@ export function lintPackageJson(
   const files = findFiles(input);
   const packages = files.map<PkgInfo>(file => ({
     file,
-    data: readPkg(file)
+    data: readPackageSync({cwd: dirname(file)})
   }));
   packages.forEach(pkg => {
     const context: LinterRuleContext = {
@@ -41,15 +43,4 @@ export function lintPackageJson(
 
 function findFiles(input: readonly string[]): string[] {
   return input.map(pattern => globby(pattern, {gitignore: true})).flat();
-}
-
-/**
- * Reads the content of a `package.json` file
- * @param fileName - The name of the `package.json` file to read
- * @returns Package information {@link PkgInfo}
- * @public
- */
-export function readPkg(fileName: string): Pkg {
-  const json = readFileSync(fileName, 'utf-8');
-  return JSON.parse(json);
 }

@@ -1,5 +1,6 @@
+import {PackageJson} from 'read-pkg';
 import {MESSAGES} from '../constants';
-import {LinterRule, Pkg} from '../model';
+import {LinterRule} from '../model';
 
 /**
  * A rule which checks whether pkg.json top-level property children are
@@ -12,7 +13,7 @@ export const SORT_RULE: LinterRule = {
   fixable: true,
   exec: ({pkg, fix, report}) => {
     const sortedProps: (keyof Pick<
-      Pkg,
+      PackageJson,
       'scripts' | 'dependencies' | 'devDependencies' | 'peerDependencies'
     >)[] = ['scripts', 'dependencies', 'devDependencies', 'peerDependencies'];
     sortedProps.forEach(propName => {

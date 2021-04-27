@@ -1,11 +1,11 @@
+import {sync as readPackageSync} from 'read-pkg';
 import {
   DEFAULT_CONFIG,
   LinterRuleContext,
-  readPkg,
   LINT_PACKAGE_JSON_RULES
 } from '@lint-package-json/core';
 import {ESLintUtils} from '@typescript-eslint/experimental-utils';
-import {basename} from 'path';
+import {basename, dirname} from 'path';
 
 const createRule = ESLintUtils.RuleCreator(
   () =>
@@ -41,7 +41,7 @@ const plugin = {
               const ctx: LinterRuleContext = {
                 config: DEFAULT_CONFIG,
                 fix: false,
-                pkg: {file, data: readPkg(file)},
+                pkg: {file, data: readPackageSync({cwd: dirname(file)})},
                 report(message: string) {
                   context.report({
                     node,
@@ -72,9 +72,11 @@ const plugin = {
       preprocess(_text: string, _fileName: string) {
         return [];
       },
+      /* eslint-disable @typescript-eslint/no-explicit-any */
       postprocess(messages: any[][], _fileName: string): any[] {
         return ([] as any[]).concat(...messages);
       }
+      /* eslint-enable @typescript-eslint/no-explicit-any */
     }
   }
 };

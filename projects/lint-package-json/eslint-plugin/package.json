@@ -16,14 +16,14 @@
     "build:ts": "tsc --build tsconfig.build.json",
     "build:watch": "rushx build:ts --watch",
     "clean": "rm -rf lib eslint-plugin.build.log eslint-plugin.build.error.log",
-    "lint": "rushx lint:eslint && rushx lint:prettier && rushx lint:ts-index",
+    "lint": "rushx lint:eslint && rushx lint:prettier",
     "lint:eslint": "eslint .",
-    "lint:prettier": "rushx prettier -l",
+    "lint:prettier": "rushx lint:prettier:cli -l",
     "lint:package-json": "node ../cli/dist/index.js",
-    "fix": "rushx fix:eslint && rushx fix:prettier",
-    "fix:eslint": "rushx lint:eslint --fix",
-    "fix:prettier": "rushx prettier --write",
-    "prettier": "prettier \"**/*.ts\" \"**/*.js\" --ignore-path ../../../.prettierignore -l",
+    "lint:fix": "rushx lint:eslint:fix && rushx lint:prettier:fix",
+    "lint:eslint:fix": "rushx lint:eslint --fix",
+    "lint:prettier:fix": "rushx lint:prettier:cli --write",
+    "lint:prettier:cli": "prettier \"**/*.ts\" \"**/*.js\" --ignore-path ../../../.prettierignore -l",
     "rebuild": "rushx clean && rushx build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -33,7 +33,8 @@
   "dependencies": {
     "@lint-package-json/core": "workspace:*",
     "@typescript-eslint/experimental-utils": "~4.19.0",
-    "multimatch": "~5.0.0"
+    "multimatch": "~5.0.0",
+    "read-pkg": "~5.2.0"
   },
   "devDependencies": {
     "@rushstack/eslint-config": "~2.3.3",

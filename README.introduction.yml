@@ -1,0 +1,56 @@
+md:section:
+  title: Projects
+  body:
+  - join:
+    - md:link:
+        url: https://raw.githubusercontent.com/bbenoist/node-tools/master/LICENSE
+        body:
+          md:shield:
+            type: github/license/bbenoist/node-tools
+            label: License
+            logo: github
+            alt: {join: ['License: ', get: {name: license}]}
+    - md:link:
+        url: https://github.com/bbenoist/node-tools/actions/workflows/ci-cd.yml
+        body:
+          md:image:
+            url: https://github.com/bbenoist/node-tools/actions/workflows/ci-cd.yml/badge.svg?branch=master
+            alt: CI / CD
+    - md:link:
+        url: https://github.com/bbenoist/node-tools/issues
+        body:
+          md:shield:
+            type: github/issues/bbenoist/node-tools
+            label: Issues
+            logo: github
+            alt: GitHub Issues
+  - md:table:
+      header: [Name, Description, Git, NPM]
+      rows:
+        each:
+          var: rushProject
+          in: {get: rushJson.projects}
+          do:
+          - md:link:
+              body: {get: rushProject.packageName}
+              url: {get: rushProject.projectFolder}
+          - get:
+              join:
+              - projectsPackageJson.
+              - {get: rushProject.packageName}
+              - .description
+          - md:shield:
+              logo: git
+              label: ''
+              message:
+                get:
+                  join:
+                  - projectsPackageJson.
+                  - {get: rushProject.packageName}
+                  - .version
+          - if:
+              condition: {get: rushProject.shouldPublish}
+              then:
+                md:shield:
+                  type: {join: [npm/v/, {get: rushProject.packageName}]}
+              else: ' '

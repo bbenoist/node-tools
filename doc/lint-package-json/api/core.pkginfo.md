@@ -16,6 +16,6 @@ export interface PkgInfo
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [data](./core.pkginfo.data.md) | [Pkg](./core.pkg.md) | package.json content |
+|  [data](./core.pkginfo.data.md) | PackageJson | package.json content |
 |  [file](./core.pkginfo.file.md) | string | Path to the package.json file |
 

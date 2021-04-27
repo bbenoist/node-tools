@@ -1,0 +1,12 @@
+{
+  "watch": [
+    "src",
+    "nodemon.json",
+    "tsconfig.json",
+    "node_modules",
+    "package.json"
+  ],
+  "ext": "ts,json",
+  "ignore": ["src/**/*.test.ts"],
+  "exec": "ts-node --project tsconfig.json ./src/server.ts"
+}

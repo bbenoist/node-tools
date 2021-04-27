@@ -1,6 +1,6 @@
+import {PackageJson} from 'read-pkg';
 import {
   LinterRuleContext,
-  Pkg,
   PkgInfo,
   LinterRule,
   UserConfig,
@@ -13,7 +13,7 @@ import {RuleTestCase} from './rule-test-case';
 describe('rules', () => {
   function testWithoutFix(
     rule: LinterRule,
-    data: Pkg,
+    data: PackageJson,
     config: UserConfig | undefined,
     expected: RuleTestCase['expected']
   ) {
@@ -28,7 +28,7 @@ describe('rules', () => {
 
   function testWithFix(
     rule: LinterRule,
-    data: Pkg,
+    data: PackageJson,
     config: UserConfig | undefined,
     fixed: RuleTestCase['fixed']
   ) {
@@ -43,18 +43,21 @@ describe('rules', () => {
 
   function testRule(
     rule: LinterRule,
-    data: Pkg,
+    data: PackageJson,
     config: UserConfig | undefined,
     fix: boolean
-  ): {reportCalls: Parameters<LinterRuleContext['report']>[]; dataCopy: Pkg} {
-    const dataCopy: Pkg = JSON.parse(JSON.stringify(data));
+  ): {
+    reportCalls: Parameters<LinterRuleContext['report']>[];
+    dataCopy: PackageJson;
+  } {
+    const dataCopy: PackageJson = JSON.parse(JSON.stringify(data));
     const reportCalls = execRule(rule, dataCopy, config, fix);
     return {reportCalls, dataCopy};
   }
 
   function execRule(
     rule: LinterRule,
-    data: Pkg,
+    data: PackageJson,
     userConfig: UserConfig | undefined,
     fix: boolean
   ): Parameters<LinterRuleContext['report']>[] {

@@ -1,0 +1,14 @@
+md:section:
+  title: General information
+  body:
+  - 'Supported versions:'
+  - md:bulletList:
+      - join:
+        - 'Node.JS: '
+        - md:code: {get: rushJson.nodeSupportedVersionRange}
+      - join:
+        - 'PNPM: '
+        - md:code: {get: rushJson.pnpmVersion}
+      - join:
+        - 'Rush: '
+        - md:code: {get: rushJson.rushVersion}

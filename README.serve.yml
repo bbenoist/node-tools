@@ -1,0 +1,4 @@
+writeFile:
+  path: README.md
+  text:
+    include: README.yml

@@ -1,0 +1,18 @@
+md:table:
+  header: [Name, Repository Version, NPM Version]
+  rows:
+    each:
+      var: dependency
+      in: {entries: {get: packageJson.dependencies}}
+      do:
+      - md:link:
+          url: {join: ['https://npmjs.com/package/', {get: 'dependency.[0]'}]}
+          body: {get: 'dependency.[0]'}
+      - md:code:
+          if:
+            condition: {not: {equals: {a: {get: 'dependency.[1]'}, b: 'workspace:*'}}}
+            then:
+              get: 'dependency.[1]'
+            else:
+              get: {join: [projectsPackageJson., {get: 'dependency.[0]'},'.version']}
+      - md:shield: {type: {join: [npm/v/, {get: 'dependency.[0]'}]}}
